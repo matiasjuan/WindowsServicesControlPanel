@@ -15,7 +15,8 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-
+    
+    
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom" >
             <StatusBarItem>
@@ -30,24 +31,17 @@
             </StatusBarItem>
         </StatusBar>
         <Grid>
-
             <Grid.Background>
-                <ImageBrush ImageSource="r/background.png" Opacity="0.6">
-                    <ImageBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </ImageBrush.RelativeTransform>
+                <ImageBrush ImageSource="r/background.png" Opacity="1">
+
                 </ImageBrush>
             </Grid.Background>
-
+            
             <Grid HorizontalAlignment="Left" Height="auto" Margin="10,25,0,0" 
 			VerticalAlignment="Top" Width="390"
 			FlowDirection="LeftToRight"
               >
+                
                 <Button Content="Refresh" HorizontalAlignment="Left" Margin="0,0,0,0"
                 VerticalAlignment="Top" Width="75"
                 Click="button1_Click"
@@ -62,7 +56,8 @@
                 <StackPanel x:Name="stack" Margin="0,37,10,-27">
 
                     <Expander x:Name="Expander1" Header="Expander" Height="auto" 
-                          Style="{StaticResource ResourceKey=textos}">
+                          
+                              >
                         <StackPanel>
                             <Label Content="1 Label" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
                             <Label Content="2 Label" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>

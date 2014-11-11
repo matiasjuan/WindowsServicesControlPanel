@@ -7,43 +7,33 @@
              >
     <Control.Resources>
         <ResourceDictionary>
-            <Storyboard x:Key="AnimateShow">
-                <ObjectAnimationUsingKeyFrames BeginTime="0:0:0" Storyboard.TargetProperty="Visibility">
-                    <DiscreteObjectKeyFrame KeyTime="0">
-                        <DiscreteObjectKeyFrame.Value>
-                            <Visibility>Visible</Visibility>
-                        </DiscreteObjectKeyFrame.Value>
-                    </DiscreteObjectKeyFrame>
-                </ObjectAnimationUsingKeyFrames>
-                <DoubleAnimation BeginTime="0:0:0.0" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.2"/>
-                <DoubleAnimation BeginTime="0:0:5.0" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5"/>
-                <ObjectAnimationUsingKeyFrames BeginTime="0:0:5.5" Storyboard.TargetProperty="Visibility">
-                    <DiscreteObjectKeyFrame KeyTime="0">
-                        <DiscreteObjectKeyFrame.Value>
-                            <Visibility>Hidden</Visibility>
-                        </DiscreteObjectKeyFrame.Value>
-                    </DiscreteObjectKeyFrame>
-                </ObjectAnimationUsingKeyFrames>
-            </Storyboard>
+
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Dictionary1.xaml"/>
+                <ResourceDictionary>
+                    
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Control.Resources>
-    
+
     <Grid Width="270">
         <Label x:Name="lbl" Content="1 Label" HorizontalAlignment="Left" VerticalAlignment="Top"
                Style="{StaticResource ResourceKey=servicios}"
             />
-        <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="135,3,0,0" 
-                VerticalAlignment="Top" Width="41" 
-                Click="btnStart_Click" Style="{StaticResource serviciosBoton}"  
-                />
-        <Button x:Name="btnStop"  Content="Stop" HorizontalAlignment="Left" Margin="181,3,0,0" VerticalAlignment="Top" Width="41" 
-                Click="btnStop_Click"  Style="{StaticResource serviciosBoton}"/>
+        <Button x:Name="btnStart" HorizontalAlignment="Left" Margin="135,3,0,0" 
+                VerticalAlignment="Top" 
+                Click="btnStart_Click" 
+           Style="{StaticResource serviciosButtonStart}"     
+               />
+        <Button x:Name="btnStop"  Content="Stop" HorizontalAlignment="Left" Margin="135,3,0,0" 
+                VerticalAlignment="Top"
+                Click="btnStop_Click"  
+                 Style="{StaticResource serviciosButtonStop}"  />
         <Button x:Name="btnRestart"  Content="Restart" HorizontalAlignment="Left" Margin="227,3,0,0" VerticalAlignment="Top" 
                 Width="41" Click="btnRestart_Click" 
+                Visibility="Hidden"
                  Style="{StaticResource serviciosBoton}"/>
     </Grid>
-    
+
 </UserControl>

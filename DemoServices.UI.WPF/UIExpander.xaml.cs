@@ -37,23 +37,20 @@ namespace DemoServices.UI.WPF
 
             theExpander.IsExpanded = false;
 
-            StackPanel sp = new StackPanel();
-            theExpander.Content = sp;
-            
             foreach (var item in g.Services)
             {
                 if (item.Exists)
                 {
                     UIServiceItem si = new UIServiceItem();
                     si.ServiceItem = item;
-                    
-                    sp.Children.Add(si);
+
+                    stackPanel.Children.Add(si);
                 }
                 else
                 {
                     UIInvalidService si = new UIInvalidService();
                     si.ServiceName = item.ServiceName;
-                    sp.Children.Add(si);
+                    stackPanel.Children.Add(si);
                 }
             }
 

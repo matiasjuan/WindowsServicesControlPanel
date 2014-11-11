@@ -65,21 +65,21 @@ namespace DemoServices.UI.WPF
         {
             HideControl(btnStart);
             HideControl(btnStop);
-            HideControl(btnRestart);
+            //HideControl(btnRestart);
         }
 
         internal void ShowAsReadyToStart()
         {
             ShowControl(btnStart);
             HideControl(btnStop);
-            HideControl(btnRestart);
+            //HideControl(btnRestart);
         }
 
         internal void ShowAsReadyToStop()
         {
             HideControl(btnStart);
             ShowControl(btnStop);
-            ShowControl(btnRestart);
+            //ShowControl(btnRestart);
         }
 
         private void DetermeHowToShow()

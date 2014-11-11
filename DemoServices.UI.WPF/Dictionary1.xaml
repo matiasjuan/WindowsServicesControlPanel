@@ -28,22 +28,47 @@
         <Setter Property="Control.Foreground" Value="Black" />
         <Setter Property="Control.Background" Value="#FFE7EBFF" />
         <Setter Property="Control.BorderBrush" Value="White" />
+        
+        
+    </Style>
+
+    <Style x:Key="serviciosButton">
         <Setter Property="Control.Cursor" Value="Hand" />
-        <!--Setter Property="Control.Template">
+        
+    </Style>
+    <Style x:Key="serviciosButtonStart" BasedOn="{StaticResource serviciosButton}">
+        <Setter Property="Control.Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Name="border" Background="Transparent" BorderThickness="1" BorderBrush="White">
-                        <ContentPresenter/>
-                    </Border>
-
+                    <StackPanel Orientation="Horizontal" Width="22" Height="22" >
+                        <Image Name="icon" Source="images\play-32.png" 
+                                               Width="22" Height="22" />
+                    </StackPanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Button.IsPressed" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
+                            <Setter TargetName="icon" Property="Source" Value="images\play-32-over.png" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
-        </-->
+        </Setter>
+    </Style>
+    <Style x:Key="serviciosButtonStop" BasedOn="{StaticResource serviciosButton}">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <StackPanel Orientation="Horizontal" Width="22" Height="22" >
+                        <Image Name="icon" Source="images\stop-64.png" 
+                                               Width="22" Height="22" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsPressed" Value="True">
+                            <Setter TargetName="icon" Property="Source" Value="images\stop-64.png" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
     
     <Style x:Key="serviciosError" BasedOn="{StaticResource textos}" >
@@ -51,7 +76,7 @@
     </Style>
 
     <Storyboard x:Key="animateHide">
-        <ObjectAnimationUsingKeyFrames BeginTime="0:0:0" Duration="0:0:1"
+        <ObjectAnimationUsingKeyFrames BeginTime="0:0:0" Duration="0:0:0.5"
                                        Storyboard.TargetProperty="Visibility">
             <DiscreteObjectKeyFrame KeyTime="0">
                 <DiscreteObjectKeyFrame.Value>
@@ -59,10 +84,10 @@
                 </DiscreteObjectKeyFrame.Value>
             </DiscreteObjectKeyFrame>
         </ObjectAnimationUsingKeyFrames>
-        <DoubleAnimation BeginTime="0:0:0.0" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:1"/>
+        <DoubleAnimation BeginTime="0:0:0.0" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5"/>
     </Storyboard>
     <Storyboard x:Key="animateShow">
-        <ObjectAnimationUsingKeyFrames BeginTime="0:0:0" Duration="0:0:1"
+        <ObjectAnimationUsingKeyFrames BeginTime="0:0:0" Duration="0:0:0.5"
                                        Storyboard.TargetProperty="Visibility">
             <DiscreteObjectKeyFrame KeyTime="0">
                 <DiscreteObjectKeyFrame.Value>
@@ -70,7 +95,7 @@
                 </DiscreteObjectKeyFrame.Value>
             </DiscreteObjectKeyFrame>
         </ObjectAnimationUsingKeyFrames>
-        <DoubleAnimation BeginTime="0:0:0.0" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1"/>
+        <DoubleAnimation BeginTime="0:0:0.0" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.5"/>
     </Storyboard>
 
 </ResourceDictionary>

@@ -27,14 +27,21 @@
                     
                     <Label x:Name="lblRunning" Content="8" HorizontalAlignment="Left" VerticalAlignment="Top"
                            Style="{StaticResource ResourceKey=Header}"
+                           Visibility="Hidden"
                     />
                     
                     <Label x:Name="lblTotal" Content="10" HorizontalAlignment="Left" VerticalAlignment="Top"
                            Style="{StaticResource ResourceKey=Header}"
+                           Visibility="Hidden"
                     />
                 </StackPanel>
             </Expander.Header>
-            <Grid Background="#FFE5E5E5" Style="{StaticResource ResourceKey=textos}"/>
+            <Expander.Content>
+                <StackPanel Name="stackPanel"  HorizontalAlignment="Left" Margin="25,0,0,0" >
+
+                </StackPanel>
+
+            </Expander.Content>
         </Expander>
 
     </Grid>

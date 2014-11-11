@@ -144,6 +144,11 @@
     <Content Include="config.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="images\play-32-over.png" />
+    <Resource Include="images\play-32.png" />
+    <Resource Include="images\play-64.png" />
+    <Resource Include="images\settings-64.png" />
+    <Resource Include="images\stop-64.png" />
     <Resource Include="images\1415749382_services.png" />
     <Resource Include="images\1415749388_services.png" />
     <Resource Include="images\1415749401_checked_checkbox.png" />

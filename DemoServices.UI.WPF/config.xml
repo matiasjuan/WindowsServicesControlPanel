@@ -1,12 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <root>
+  
   <group name="Workshops">
-    <service name="Tomcat" />
-    <service name="MuleMSMQService" />
-    <service name="MMC"/>
+    <service name="MMC" />
+    <service name="ActiveMQ" />
+    <service name="MySQL"/>
+    <service name="ms-dev-apigtw"/>
+    <service name="ms-dev-esb-01"/>
   </group>
-  <group name="API Workshop">
-    <service name="Tomcat" />
+  <group name="Mulesoft">
+    <service name="invalid"/>
+    <service name="ms-dev-apigtw"/>
+    <service name="ms-dev-esb-01"/>
+    <service name="ms-qa-esb-01"/>
+    <service name="ms-prod-esb-01"/>
+    <service name="ms-prod-esb-02"/>
   </group>
-    
+  <group name="Base Software">
+    <service name="MMC" />
+    <service name="ActiveMQ" />
+    <service name="MySQL"/>
+    <service name="MSSQL$SERVER"/>
+    <service name="OracleXE"/>
+    <service name="W3SVC"/>
+  </group>
 </root>
