@@ -7,7 +7,7 @@
         x:Class="DemoServices.UI.WPF.MainWindow"
         xmlns:local="clr-namespace:DemoServices.UI.WPF"
         Title="Services" Height="362" Width="525" d:DesignHeight="393.209">
-    
+
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -15,8 +15,8 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    
-    
+
+
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom" >
             <StatusBarItem>
@@ -37,13 +37,13 @@
                 </ImageBrush>
             </Grid.Background>
             
-            <Grid HorizontalAlignment="Left" Height="auto" Margin="10,5,0,0" 
-			VerticalAlignment="Top" Width="390"
-			FlowDirection="LeftToRight"
+            <Grid Height="auto" Margin="10,5,0,0" 
+			VerticalAlignment="Top"
+			FlowDirection="LeftToRight" HorizontalAlignment="Left" Width="390"
               >
 
+                <StackPanel x:Name="stack" Margin="2,2,0,0">
 
-                <StackPanel x:Name="stack">
 
                     <Expander x:Name="Expander1" Header="Expander" Height="auto" 
                           
@@ -87,8 +87,9 @@
 
 
             </Grid>
+
         </Grid>
     </DockPanel>
-    
-    
+
+
 </Window>

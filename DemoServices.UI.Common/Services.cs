@@ -4,18 +4,20 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Xml.Linq;
 
 namespace DemoServices.UI.Common
 {
     public class ServiceGroups {
         private Dictionary<string, ServiceGroupItem> groupItems;
-        private Dictionary<string, ServiceItem> services;
-
+        private Dictionary<string, ServiceItem> serviceItems;
+        
         public ServiceGroups()
         {
             this.groupItems = new Dictionary<string,ServiceGroupItem>();
-            this.services = new Dictionary<string, ServiceItem>(); 
+            this.serviceItems = new Dictionary<string, ServiceItem>();
+            StartTimer();
         }
 
         public void LoadFromFile(String fileName)
@@ -57,14 +59,14 @@ namespace DemoServices.UI.Common
         private void Add(string groupName, string serviceName)
         {
             ServiceItem si = null;
-            if (services.ContainsKey(serviceName))
+            if (serviceItems.ContainsKey(serviceName))
             {
-                si = services[serviceName];
+                si = serviceItems[serviceName];
             }
             else
             {
                 si = new ServiceItem(serviceName);
-                services.Add(serviceName, si);
+                serviceItems.Add(serviceName, si);
             }
 
             ServiceGroupItem gi = null;
@@ -88,18 +90,51 @@ namespace DemoServices.UI.Common
 
         public Dictionary<string, ServiceItem> ServiceItems
         {
-            get { return services; }
+            get { return serviceItems; }
         }
 
         public ServiceItem FindServiceByKey(string serviceName)
         {
-            if (services.ContainsKey(serviceName))
+            if (serviceItems.ContainsKey(serviceName))
             {
-                return services[serviceName];
+                return serviceItems[serviceName];
             }
             return null;
         }
 
+
+        /// <summary>
+        /// Forces a refresh for every service.
+        /// If status is different, will trigger RefreshStatus event
+        /// </summary>
+        public void ForceRefreshServiceStatus()
+        {
+            foreach (var serviceItem in serviceItems)
+            {
+                if ( serviceItem.Value.Exists )
+                    serviceItem.Value.ForceRefreshStatus();
+            }
+
+        }
+
+        private void StartTimer()
+        {
+            // Create a timer with a two second interval.
+            System.Timers.Timer timer = new System.Timers.Timer(2000);
+
+            // Hook up the Elapsed event for the timer. 
+            timer.Elapsed += OnTimedEvent;
+
+            //start timer
+            timer.Enabled = true;
+        }
+
+        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            ForceRefreshServiceStatus();
+        }
+
+        
     }
 
     public class ServiceGroupItem

@@ -56,88 +56,6 @@ namespace DemoServices.UI.WPF
                 serviceItem.Value.AddListener(this);
             }
 
-            CheckStatus();
-        }
-
-        /*
-        private Cursor defaultCursor;
-
-        public void si_DoStopService(object sender, EventArgs e)
-        {
-            UIServiceItem item = (UIServiceItem)sender;
-            ServiceMonitorHandler smh = new ServiceMonitorHandler(item.ServiceItem, this);
-            item.ShowAsDisabled();
-            defaultCursor = this.Cursor;
-            this.Cursor = Cursors.AppStarting;
-            smh.Stop();
-        }
-
-        public void si_DoRunService(object sender, EventArgs e)
-        {
-            UIServiceItem item = (UIServiceItem)sender;
-            ServiceMonitorHandler smh = new ServiceMonitorHandler(item.ServiceItem, this);
-            item.ShowAsDisabled();
-            defaultCursor = this.Cursor;
-            this.Cursor = Cursors.AppStarting;
-            smh.Start();
-        }
-
-        public void si_DoRestartService(object sender, EventArgs e)
-        {
-            UIServiceItem item = (UIServiceItem)sender;
-            ServiceMonitorHandler smh = new ServiceMonitorHandler(item.ServiceItem, this);
-            item.ShowAsDisabled();
-            defaultCursor = this.Cursor;
-            this.Cursor = Cursors.AppStarting;
-            smh.Restart();
-        }
-
-        public void ServiceStatusChanged(ServiceController service)
-        {
-            this.Cursor = defaultCursor;
-            CheckStatus();
-        }
-
-        public void ServiceStatusError(ServiceMonitor serviceMonitor, String message)
-        {
-            this.Cursor = defaultCursor;
-            MessageBox.Show(String.Format("Servicio {0}, error {1}", serviceMonitor.Service.Controller.ServiceName, message));
-            CheckStatus();
-        }
-
-        public object PerformInvoke(Delegate method, params object[] args)
-        {
-            return this.Dispatcher.Invoke(method, args);
-        }
-        */
-        
-        private void CheckStatus()
-        {
-            foreach (var serviceItem in groups.ServiceItems)
-            {
-                //serviceItem.Value.CheckStatus();
-                
-            }
-            /*
-            foreach (var item in groups.ServiceItems)
-            {
-                if ( item.Value.Exists )
-                {
-                    foreach (var control in item.Value.Controls)
-                    {
-
-                        ServiceController service = new ServiceController(item.Key);
-                        UIServiceItem si = (UIServiceItem)control;
-                        UpdateUIStatus(si, service);
-                    }
-                }
-            }
-             * */
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            CheckStatus();
         }
 
         public void RefreshStatus(ServiceItem serviceItem)
@@ -195,5 +113,6 @@ namespace DemoServices.UI.WPF
             progressBar.Value = milliseconds;
         }
         #endregion
+
     }
 }

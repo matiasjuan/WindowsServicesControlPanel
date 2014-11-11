@@ -164,6 +164,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <Resource Include="images\refresh-64-green.png" />
+    <Resource Include="images\refresh-64-red.png" />
     <None Include="Resources\Icon1.ico" />
     <Resource Include="images\gear.ico" />
     <Resource Include="images\stop-32-green.png" />

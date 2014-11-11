@@ -70,7 +70,23 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+    <Style x:Key="serviciosButtonRefresh" BasedOn="{StaticResource serviciosButton}">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <StackPanel Orientation="Horizontal" Width="22" Height="22" >
+                        <Image Name="icon" Source="images\refresh-64-green.png" 
+                                               Width="22" Height="22" />
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsPressed" Value="True">
+                            <Setter TargetName="icon" Property="Source" Value="images\refresh-64-red.png" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
     <Style x:Key="serviciosError" BasedOn="{StaticResource textos}" >
         <Setter Property="Control.Foreground" Value="Red" />
     </Style>

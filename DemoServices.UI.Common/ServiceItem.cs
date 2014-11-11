@@ -37,6 +37,7 @@ namespace DemoServices.UI.Common
         private ServiceController serviceController;
         private bool exists;
         private string serviceName;
+        private ServiceControllerStatus lastKnownStatus;
 
         public ServiceItem(String serviceName)
         {
@@ -46,7 +47,7 @@ namespace DemoServices.UI.Common
             this.groups = new List<ServiceGroupItem>();
             try
             {
-                ServiceControllerStatus status = serviceController.Status;
+                lastKnownStatus = serviceController.Status;
                 this.exists = true;
             }
             catch (Exception)
@@ -109,7 +110,6 @@ namespace DemoServices.UI.Common
             NotifyProgress();
             Thread thread = new Thread(new ThreadStart(this.ThreadDoStart));
             thread.Start();
-           
         }
 
         public void Stop()
@@ -119,7 +119,6 @@ namespace DemoServices.UI.Common
             NotifyProgress();
             Thread thread = new Thread(new ThreadStart(this.ThreadDoStop));
             thread.Start();
-            
         }
 
         private void ThreadDoStart()
@@ -160,6 +159,7 @@ namespace DemoServices.UI.Common
 
         private void notifyStarted()
         {
+            lastKnownStatus = ServiceControllerStatus.Running;
             foreach (ServiceItemListener listener in listeners)
             {
                 ServiceItemStatusEventHandler callback =
@@ -170,6 +170,7 @@ namespace DemoServices.UI.Common
 
         private void notifyStopped()
         {
+            lastKnownStatus = ServiceControllerStatus.Stopped;
             foreach (ServiceItemListener listener in listeners)
             {
                 ServiceItemStatusEventHandler callback =
@@ -180,6 +181,7 @@ namespace DemoServices.UI.Common
 
         private void notifyError(String errorMessage)
         {
+            lastKnownStatus = serviceController.Status;
             foreach (ServiceItemListener listener in listeners)
             {
                 ServiceItemErrorEventHandler callback =
@@ -234,6 +236,25 @@ namespace DemoServices.UI.Common
             finally
             {
 
+            }
+        }
+
+        /// <summary>
+        /// Forces a refresh for every service.
+        /// If status is different, will trigger RefreshStatus event
+        /// </summary>
+        internal void ForceRefreshStatus()
+        {
+            serviceController.Refresh();
+            
+            if (lastKnownStatus.Equals(serviceController.Status))
+                return;
+            lastKnownStatus = serviceController.Status;
+            foreach (ServiceItemListener listener in listeners)
+            {
+                ServiceItemStatusEventHandler callback =
+                    new ServiceItemStatusEventHandler(listener.RefreshStatus);
+                listener.PerformInvoke(callback, new Object[] { this });
             }
         }
     }
