@@ -140,36 +140,6 @@ namespace DemoServices.UI.WPF
             CheckStatus();
         }
 
-        private void btnStopAll_Click(object sender, RoutedEventArgs e)
-        {
-            /*
-            defaultCursor = this.Cursor;
-            this.Cursor = Cursors.AppStarting;
-            btnStopAll.IsEnabled = false;
-            try
-            {
-                foreach (var item in groups.ServiceItems)
-                {
-                    if (item.Value.Exists)
-                    {
-                        ServiceController service = new ServiceController(item.Key);
-                        if (service.CanStop)
-                        {
-                            service.Stop();
-                            service.WaitForStatus(ServiceControllerStatus.Stopped, new TimeSpan(0, 0, 30));
-                        }
-                    }
-                }
-            }
-            finally
-            {
-                this.Cursor = defaultCursor;
-                btnStopAll.IsEnabled = true;
-            }
-            CheckStatus();
-             */
-        }
-
         public void RefreshStatus(ServiceItem serviceItem)
         {
             //throw new NotImplementedException();
@@ -197,6 +167,7 @@ namespace DemoServices.UI.WPF
 
         public void ServiceError(ServiceItem serviceItem, string error)
         {
+            MessageBox.Show(error);
             ProgressBarHide();
         }
 

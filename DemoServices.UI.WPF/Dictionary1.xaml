@@ -58,12 +58,12 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <StackPanel Orientation="Horizontal" Width="22" Height="22" >
-                        <Image Name="icon" Source="images\stop-64.png" 
+                        <Image Name="icon" Source="images\stop-32-red.png" 
                                                Width="22" Height="22" />
                     </StackPanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Button.IsPressed" Value="True">
-                            <Setter TargetName="icon" Property="Source" Value="images\stop-64.png" />
+                            <Setter TargetName="icon" Property="Source" Value="images\stop-32-green.png" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

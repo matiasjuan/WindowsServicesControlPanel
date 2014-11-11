@@ -20,8 +20,8 @@
     <service name="MMC" />
     <service name="ActiveMQ" />
     <service name="MySQL"/>
-    <service name="MSSQL$SERVER"/>
-    <service name="OracleXE"/>
+    <service name="MSSQL$SQLEXPRESS"/>
+    <service name="OracleServiceXE"/>
     <service name="W3SVC"/>
   </group>
 </root>
