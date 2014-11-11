@@ -1,0 +1,76 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="textos" >
+        <Setter Property="Control.Foreground" Value="White" />
+        <Setter Property="Control.FontSize" Value="12"/>
+    </Style>
+    
+    <Style x:Key="Header" >
+        <Setter Property="Control.Foreground" Value="White"  />
+        <Setter Property="Control.FontSize" Value="16"/>
+        <Setter Property="Control.FontWeight" Value="Bold" />
+        <Setter Property="Control.Cursor" Value="Hand" />
+    </Style>
+    
+    <Style x:Key="Header2" BasedOn="{StaticResource ResourceKey=Header}" >
+        <Setter Property="Control.Foreground" Value="Black"  />
+        <Setter Property="Control.FontSize" Value="16"/>
+        <Setter Property="Control.FontWeight" Value="Bold" />
+    </Style>
+
+
+    <Style x:Key="servicios" BasedOn="{StaticResource textos}" >
+        
+    </Style>
+    
+    <Style x:Key="serviciosBoton" BasedOn="{StaticResource textos}" >
+        <Setter Property="Control.Foreground" Value="Black" />
+        <Setter Property="Control.Background" Value="#FFE7EBFF" />
+        <Setter Property="Control.BorderBrush" Value="White" />
+        <Setter Property="Control.Cursor" Value="Hand" />
+        <!--Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border" Background="Transparent" BorderThickness="1" BorderBrush="White">
+                        <ContentPresenter/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsPressed" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </-->
+    </Style>
+    
+    <Style x:Key="serviciosError" BasedOn="{StaticResource textos}" >
+        <Setter Property="Control.Foreground" Value="Red" />
+    </Style>
+
+    <Storyboard x:Key="animateHide">
+        <ObjectAnimationUsingKeyFrames BeginTime="0:0:0" Duration="0:0:1"
+                                       Storyboard.TargetProperty="Visibility">
+            <DiscreteObjectKeyFrame KeyTime="0">
+                <DiscreteObjectKeyFrame.Value>
+                    <Visibility>Hidden</Visibility>
+                </DiscreteObjectKeyFrame.Value>
+            </DiscreteObjectKeyFrame>
+        </ObjectAnimationUsingKeyFrames>
+        <DoubleAnimation BeginTime="0:0:0.0" Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:1"/>
+    </Storyboard>
+    <Storyboard x:Key="animateShow">
+        <ObjectAnimationUsingKeyFrames BeginTime="0:0:0" Duration="0:0:1"
+                                       Storyboard.TargetProperty="Visibility">
+            <DiscreteObjectKeyFrame KeyTime="0">
+                <DiscreteObjectKeyFrame.Value>
+                    <Visibility>Visible</Visibility>
+                </DiscreteObjectKeyFrame.Value>
+            </DiscreteObjectKeyFrame>
+        </ObjectAnimationUsingKeyFrames>
+        <DoubleAnimation BeginTime="0:0:0.0" Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:1"/>
+    </Storyboard>
+
+</ResourceDictionary>

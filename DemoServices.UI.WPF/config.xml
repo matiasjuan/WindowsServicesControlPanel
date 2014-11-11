@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <group name="Workshops">
+    <service name="Tomcat" />
+    <service name="MuleMSMQService" />
+    <service name="MMC"/>
+  </group>
+  <group name="API Workshop">
+    <service name="Tomcat" />
+  </group>
+    
+</root>
